@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cvc5-stubs"
+description = "Python type stubs for cvc5 package"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "BSD 3-Clause License" }
+dependencies = [
+    "cvc5==1.2.0",
+]
+version = "1.2.0-1"
+
+[project.optional-dependencies]
+dev = [
+    "mypy==1.13.0",
+    "black==24.10.0",
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+
+[tool.setuptools.package-data]
+"*" = ["*.pyi"]
+
+
+[tool.mypy]
+disallow_untyped_calls = true
+disallow_untyped_defs = true
+disallow_subclassing_any = false
+
+[tool.black]
+extend-exclude = "/(.venv)/"
+
+
